@@ -3,16 +3,18 @@ $(function(){
     var isDrag = false;
 
     $('.pointer-barra').mousedown(function(){
-        var isDrag = true;
+        isDrag = true;
     });
 
     $(document).mouseup(function(){
         isDrag = false;
     });
 
-    $('.barra-preco').mousemove(function(){
+    $('.barra-preco').mousemove(function(e){
         if(isDrag){
-            console.log("Mouse Arrastado");
+            var elBase = $(this);
+            var mouseX = e.pageX - elBase.offset().left;
+            console.log(mouseX);
         }
     });
 
